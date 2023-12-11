@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { View, AppRegistry, Text} from "react-native";
+import { PaperProvider } from "react-native-paper";
+import { name as SkyeTest } from "./app.json";
+import theme from "./components/PaperProvider";
+import styles from "./components/Styles";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Skye</Text>
-      <StatusBar style="auto" />
-    </View>
+    // The paper provider wraps all UI components with React Native Paper
+    <PaperProvider theme={theme}> 
+      <View style={styles.container}>
+        <Text>Welcome to Skye</Text> 
+      </View>
+    </PaperProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+AppRegistry.registerComponent(SkyeTest, () => App);
+

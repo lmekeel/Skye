@@ -3,7 +3,7 @@ import TextInputBox from "../components/TextInput";
 import {Alert, Text, View, ImageBackground, TouchableOpacity} from "react-native";
 import styles from "../components/Styles";
 
-const Registration = () => {
+const Registration = ({navigation}) => {
 
    //Need to include a validate email method and password rules
 
@@ -12,13 +12,6 @@ const Registration = () => {
      Alert.alert("Button Pressed", "You pressed the register button!");
      // Additional logic, such as navigating to another screen:
      // navigation.navigate('YourScreenName');
-   };
-
-   const handleLoginPress = () => {
-     // Your logic or action when the "Login" link is pressed
-     Alert.alert("Link Pressed", "You pressed the login link!");
-     // Additional logic, such as navigating to another screen:
-     // navigation.navigate('LoginScreen');
    };
 
   return (
@@ -38,7 +31,7 @@ const Registration = () => {
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
         <Text>Already have an account?</Text>
-        <TouchableOpacity onPress={handleLoginPress}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
       </View>
